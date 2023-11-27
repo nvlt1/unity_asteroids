@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Unity_asteroids.sln"
+    "dotnet.defaultSolution": "unity_asteroids.sln"
 }
