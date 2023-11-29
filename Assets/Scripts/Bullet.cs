@@ -14,11 +14,21 @@ public class Bullet : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void Project(Vector2 direction){
+    public void Projectile(Vector2 direction){
+
+        // once bullet is fired, adds force to the bullet
         myRigidBody.AddForce(direction * this.speed);
 
+        // destorys bullet eventually
         Destroy(this.gameObject, this.maxLifeTime);
     }
+
+    // called when bullet collides with an object
+    public void OnCollisionEnter2D(Collision2D collision){
+        Destroy(this.gameObject);
+    }
+
+
     // Start is called before the first frame update
     // void Start()
     // {

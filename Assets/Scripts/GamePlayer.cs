@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GamePlayer : MonoBehaviour
 {
+    //instantiate bullet
+    public Bullet bulletPrefab;
     public float speed_of_thrust = 1.0f;
     public float turningSpeed = 1.0f;
 
@@ -35,17 +37,28 @@ public class GamePlayer : MonoBehaviour
             turningDirection = 0.0f;
         }
 
+        // shoots everytime you press it, to shoot must press again for GetKeyDown
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            ShootBullets();
+        }
         
         
     }
 
     private void FixedUpdate() {
         if (isThrusting){
+            //transform.up ensures we thrust in one direction only
             myRigidBody.AddForce(this.transform.up * this.speed_of_thrust);
         }
 
         if (turningDirection != 0.0f){
             myRigidBody.AddTorque(turningDirection * this.turningSpeed);
         }
+    }
+
+    private void ShootBullets(){
+        //position and rotation to spawn bullets at players position
+        Bullet bullet = Instantiate(this.bulletPrefab, this.transform.position, this.transform.rotation);
+        bullet.Projectile(this.transform.up);
     }
 }
