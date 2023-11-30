@@ -12,6 +12,8 @@ public class Asteroids : MonoBehaviour
     public float size = 1.0f;
     public float minSize = 0.5f;
     public float maxSize = 1.5f;
+    public float speed = 50.0f;
+    public float maxLifeTime = 30.0f;
 
     // references sprite renderer to change which sprite is rendered
     private SpriteRenderer mySpriteRenderer;
@@ -36,6 +38,12 @@ public class Asteroids : MonoBehaviour
         this.transform.localScale = Vector3.one * this.size; // vector3.one is just x, y, z values all = 1 
 
         myRigidBody.mass = this.size;
+    }
+
+    public void SetTrajectory(Vector2 direction){
+        myRigidBody.AddForce(direction * this.speed);
+        
+        Destroy(this.gameObject, this.maxLifeTime);
     }
 
     // Update is called once per frame

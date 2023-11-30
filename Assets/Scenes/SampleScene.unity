@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 199261582}
   - component: {fileID: 199261581}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gameBoundaryleft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +196,55 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 16, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &215674409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215674411}
+  - component: {fileID: 215674410}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &215674410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215674409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5941b9b20900a14aa73f7b9816712e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPrefab: {fileID: -3563693631292093737, guid: 1d444eb47711ff84ba01b0933969b6fa, type: 3}
+  trajectoryVar: 15
+  spawnDist: 14
+  spawnRate: 2
+  spawnAmt: 1
+--- !u!4 &215674411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215674409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -302,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242264114}
   - component: {fileID: 1242264113}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gameBoundaryBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1563764496}
   - component: {fileID: 1563764495}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gameBoundaryright
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594123755}
   - component: {fileID: 1594123754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gameBoundaryTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,3 +771,4 @@ SceneRoots:
   - {fileID: 1563764496}
   - {fileID: 199261582}
   - {fileID: 1482573139}
+  - {fileID: 215674411}

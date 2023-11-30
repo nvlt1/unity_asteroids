@@ -5,7 +5,7 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     // reference to asteroid prefab to instantiate it
-    public AsteroidSpawner asteroidPrefab;
+    public Asteroids asteroidPrefab;
 
     // variance for asteroids so they don't just attack the center but curve around it
     public float trajectoryVar = 15.0f;
@@ -41,7 +41,10 @@ public class AsteroidSpawner : MonoBehaviour
             Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward); // AngleAxis(angle, axis - z axis), .forward is (0, 0, 1)
 
             // object instantiation
-            AsteroidSpawner asteroid = Instantiate(this.asteroidPrefab, spawnPoint, rotation); // rotation gives it's trajectory as well 
+            Asteroids asteroid = Instantiate(this.asteroidPrefab, spawnPoint, rotation); // rotation gives it's trajectory as well 
+
+            asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
+            asteroid.SetTrajectory(rotation * -spawnDirection);
         }
     }
 
