@@ -46,6 +46,33 @@ public class Asteroids : MonoBehaviour
         Destroy(this.gameObject, this.maxLifeTime);
     }
 
+    // Asteroid splitter
+    private void OnCollisionEnter2D(Collision2D collision){
+
+        // splits only on bullet hits
+        if (collision.gameObject.tag == "Bullet"){
+            // if current size of asteroid can be divided by 2, and is bigger than minsize of 0.5, split asteroid
+            if ((this.size * 0.5f) >= this.minSize){
+                
+                // Split asteroid twice
+                AsteroidSplit();
+                AsteroidSplit();
+            }
+
+            Destroy(this.gameObject); // destroying current asteroid
+        }
+    }
+
+    private void AsteroidSplit(){
+
+        Vector2 position = this.transform.position;
+        position += Random.insideUnitCircle * 0.5f; // new asteroids after split don't spawn on same point
+
+        Asteroids splitHalf = Instantiate(this, position, this.transform.rotation);
+        splitHalf.size = this.size * 0.5f;
+        splitHalf.SetTrajectory(Random.insideUnitCircle.normalized * this.speed); //randomized split direction
+    }
+
     // Update is called once per frame
     void Update()
     {
