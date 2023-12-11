@@ -41,6 +41,14 @@ public class GameManager : MonoBehaviour
     public void AsteroidDestroyed(Asteroids asteroid){
         this.explosion.transform.position = asteroid.transform.position;
         this.explosion.Play();
+
+        if (asteroid.size < 0.75f){
+            this.score += 60;
+        } else if (asteroid.size < 1.0f) {
+            this.score += 40;
+        } else {
+            this.score += 20;
+        }
         
     }
 
